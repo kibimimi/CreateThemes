@@ -1,0 +1,15 @@
+create_themes_footertheme:
+    resource: "@CreateThemesBundle/Controller/FooterthemeController.php"
+    type:     annotation
+
+create_themes_header_themes:
+    resource: "@CreateThemesBundle/Controller/HeaderThemesController.php"
+    type:     annotation
+
+create_themes:
+    resource: "@CreateThemesBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

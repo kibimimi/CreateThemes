@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>HeaderThemes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Width</th>
+                <th>Height</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for headerTheme in headerThemes %}
+            <tr>
+                <td><a href="{{ path('headerthemes_show', { 'id': headerTheme.id }) }}">{{ headerTheme.id }}</a></td>
+                <td>{{ headerTheme.width }}</td>
+                <td>{{ headerTheme.height }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('headerthemes_show', { 'id': headerTheme.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('headerthemes_edit', { 'id': headerTheme.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('headerthemes_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

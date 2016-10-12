@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Footertheme list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Width</th>
+                <th>Height</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for footertheme in footerthemes %}
+            <tr>
+                <td><a href="{{ path('footertheme_show', { 'id': footertheme.id }) }}">{{ footertheme.id }}</a></td>
+                <td>{{ footertheme.width }}</td>
+                <td>{{ footertheme.height }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('footertheme_show', { 'id': footertheme.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('footertheme_edit', { 'id': footertheme.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('footertheme_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
